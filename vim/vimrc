@@ -4,8 +4,7 @@ syntax on           "开启语法高亮
 set background=dark "背景色
 color desert 
 "colorscheme IDLE   "配色方案
-set ruler           "在左下角显示当前文件所在行
-set showcmd         "在状态栏显示命令
+set ruler           "在左下角显示当前文件所在行 set showcmd         "在状态栏显示命令
 set showmatch       "显示匹配的括号
 set ignorecase      "大小写无关匹配
 set smartcase       "只能匹配，即小写全匹配，大小写混合则严格匹配
@@ -87,6 +86,11 @@ function RunPython()
 endfunction
 map <F5> :call RunPython() <CR>
 
+function RunPEP8()
+    :w
+    :! /usr/local/bin/pep8 %
+endfunction
+map <F8> :call RunPEP8() <CR>
 map [n :NERDTreeToggle <CR>
 let NERDChristmasTree=1
 let NERDTreeAutoCenter=1
